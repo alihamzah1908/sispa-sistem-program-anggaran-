@@ -1,0 +1,925 @@
+<div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                    Overview
+                </div>
+                <h2 class="page-title">
+                    Report
+                </h2>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <!-- Page pre-title -->
+                <button type="button" class="btn btn-success btn-pill btn-sm" id="download-report">Download report</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+        <div class="row align-items-center search_range_date">
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="start_date" id="start_date">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="end_date" id="end_date">
+            </div>
+            <div class="col-md-3">
+                <a href="javascript:void(0)" id="search_date" class="btn btn-white btn-icon" aria-label="Button">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="10" cy="10" r="7"></circle>
+                        <line x1="21" y1="21" x2="15" y2="15"></line>
+                    </svg>
+                </a>
+            </div>
+            <div class="col-md-3 d-flex justify-content-end">
+                <!-- Page pre-title -->
+                <select class="form-select" id="presence">
+                    <option value="">Choose</option>
+                    <option value="present">Present</option>
+                    <option value="negotiation">Time negotiation</option>
+                    <option value="Lateness">Lateness</option>
+                    <option value="not present">Not present</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-body">
+    <div class="container-xl">
+        <div class="row row-deck row-cards">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Employee</h3>
+                    </div>
+                    <div class="card-body border-bottom py-3">
+                        <div class="d-flex">
+                            <div class="text-muted">
+                                Show
+                                <div class="mx-2 d-inline-block">
+                                    <input type="text" class="form-control form-control-sm" value="8" size="3"
+                                        aria-label="Invoices count">
+                                </div>
+                                entries
+                            </div>
+                            <div class="ms-auto text-muted">
+                                Search:
+                                <div class="ms-2 d-inline-block">
+                                    <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table card-table table-vcenter text-nowrap datatable" id="employee">
+                            <thead>
+                                <tr>
+                                    <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"
+                                            aria-label="Select all invoices"></th>
+                                    <th class="w-1">No.
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-sm text-dark icon-thick" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="6 15 12 9 18 15" />
+                                        </svg>
+                                    </th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Start Time</th>
+                                    <th>Status</th>
+                                    <th>Day</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer d-flex align-items-center">
+                        <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries
+                        </p>
+                        <ul class="pagination m-0 ms-auto">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <polyline points="15 6 9 12 15 18" />
+                                    </svg>
+                                    prev
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    next
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <polyline points="9 6 15 12 9 18" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <form action="add_attendance" method="POST">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New absent <b>{{ logusername }}</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="mb-3 col-lg-6">
+                            <label class="form-label font-weight-bold">Day</label>
+                            <div class="datepicker-inline" id="datepicker-inline" onclick="datepickerInline()"></div>
+                        </div>
+                        <div class="mb-3 col-lg-6">
+                            <label class="form-label font-weight-bold">Arrival Time</label>
+                            <input type="text" class="form-control mb-2" name="arr_time" id="arr_time"
+                                placeholder="Arrival time.." value="">
+
+                            <label class="form-label font-weight-bold">Presence</label>
+                            <select name="presence" class="form-select">
+                                <option value="">Choose</option>
+                                <option value="present">Present</option>
+                                <option value="not present">Not present</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div>
+                                <label class="form-label font-weight-bold">Schedule Information</label>
+                                <textarea class="form-control" rows="3" name="shchedule_information"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-danger btn-sm link-secondary" data-bs-dismiss="modal">
+                        Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary btn-sm ms-auto">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('chart-revenue-bg'), {
+            chart: {
+                type: "area",
+                fontFamily: 'inherit',
+                height: 40.0,
+                sparkline: {
+                    enabled: true
+                },
+                animations: {
+                    enabled: false
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            fill: {
+                opacity: .16,
+                type: 'solid'
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+                curve: "smooth",
+            },
+            series: [{
+                name: "Profits",
+                data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67]
+            }],
+            grid: {
+                strokeDashArray: 4,
+            },
+            xaxis: {
+                labels: {
+                    padding: 0,
+                },
+                tooltip: {
+                    enabled: false
+                },
+                axisBorder: {
+                    show: false,
+                },
+                type: 'datetime',
+            },
+            yaxis: {
+                labels: {
+                    padding: 4
+                },
+            },
+            labels: [
+                '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19'
+            ],
+            colors: ["#206bc4"],
+            legend: {
+                show: false,
+            },
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('chart-new-clients'), {
+            chart: {
+                type: "line",
+                fontFamily: 'inherit',
+                height: 40.0,
+                sparkline: {
+                    enabled: true
+                },
+                animations: {
+                    enabled: false
+                },
+            },
+            fill: {
+                opacity: 1,
+            },
+            stroke: {
+                width: [2, 1],
+                dashArray: [0, 3],
+                lineCap: "round",
+                curve: "smooth",
+            },
+            series: [{
+                name: "May",
+                data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 4, 46, 39, 62, 51, 35, 41, 67]
+            }, {
+                name: "April",
+                data: [93, 54, 51, 24, 35, 35, 31, 67, 19, 43, 28, 36, 62, 61, 27, 39, 35, 41, 27, 35, 51, 46, 62, 37, 44, 53, 41, 65, 39, 37]
+            }],
+            grid: {
+                strokeDashArray: 4,
+            },
+            xaxis: {
+                labels: {
+                    padding: 0,
+                },
+                tooltip: {
+                    enabled: false
+                },
+                type: 'datetime',
+            },
+            yaxis: {
+                labels: {
+                    padding: 4
+                },
+            },
+            labels: [
+                '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19'
+            ],
+            colors: ["#206bc4", "#a8aeb7"],
+            legend: {
+                show: false,
+            },
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('chart-active-users'), {
+            chart: {
+                type: "bar",
+                fontFamily: 'inherit',
+                height: 40.0,
+                sparkline: {
+                    enabled: true
+                },
+                animations: {
+                    enabled: false
+                },
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '50%',
+                }
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            fill: {
+                opacity: 1,
+            },
+            series: [{
+                name: "Profits",
+                data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67]
+            }],
+            grid: {
+                strokeDashArray: 4,
+            },
+            xaxis: {
+                labels: {
+                    padding: 0,
+                },
+                tooltip: {
+                    enabled: false
+                },
+                axisBorder: {
+                    show: false,
+                },
+                type: 'datetime',
+            },
+            yaxis: {
+                labels: {
+                    padding: 4
+                },
+            },
+            labels: [
+                '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19'
+            ],
+            colors: ["#206bc4"],
+            legend: {
+                show: false,
+            },
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('chart-mentions'), {
+            chart: {
+                type: "bar",
+                fontFamily: 'inherit',
+                height: 240,
+                parentHeightOffset: 0,
+                toolbar: {
+                    show: false,
+                },
+                animations: {
+                    enabled: false
+                },
+                stacked: true,
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '50%',
+                }
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            fill: {
+                opacity: 1,
+            },
+            series: [{
+                name: "Web",
+                data: [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 12, 5, 8, 22, 6, 8, 6, 4, 1, 8, 24, 29, 51, 40, 47, 23, 26, 50, 26, 41, 22, 46, 47, 81, 46, 6]
+            }, {
+                name: "Social",
+                data: [2, 5, 4, 3, 3, 1, 4, 7, 5, 1, 2, 5, 3, 2, 6, 7, 7, 1, 5, 5, 2, 12, 4, 6, 18, 3, 5, 2, 13, 15, 20, 47, 18, 15, 11, 10, 0]
+            }, {
+                name: "Other",
+                data: [2, 9, 1, 7, 8, 3, 6, 5, 5, 4, 6, 4, 1, 9, 3, 6, 7, 5, 2, 8, 4, 9, 1, 2, 6, 7, 5, 1, 8, 3, 2, 3, 4, 9, 7, 1, 6]
+            }],
+            grid: {
+                padding: {
+                    top: -20,
+                    right: 0,
+                    left: -4,
+                    bottom: -4
+                },
+                strokeDashArray: 4,
+                xaxis: {
+                    lines: {
+                        show: true
+                    }
+                },
+            },
+            xaxis: {
+                labels: {
+                    padding: 0,
+                },
+                tooltip: {
+                    enabled: false
+                },
+                axisBorder: {
+                    show: false,
+                },
+                type: 'datetime',
+            },
+            yaxis: {
+                labels: {
+                    padding: 4
+                },
+            },
+            labels: [
+                '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19', '2020-07-20', '2020-07-21', '2020-07-22', '2020-07-23', '2020-07-24', '2020-07-25', '2020-07-26'
+            ],
+            colors: ["#206bc4", "#79a6dc", "#bfe399"],
+            legend: {
+                show: false,
+            },
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('sparkline-activity'), {
+            chart: {
+                type: "radialBar",
+                fontFamily: 'inherit',
+                height: 40,
+                width: 40,
+                animations: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            plotOptions: {
+                radialBar: {
+                    hollow: {
+                        margin: 0,
+                        size: '75%'
+                    },
+                    track: {
+                        margin: 0
+                    },
+                    dataLabels: {
+                        show: false
+                    }
+                }
+            },
+            colors: ["#206bc4"],
+            series: [35],
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('chart-development-activity'), {
+            chart: {
+                type: "area",
+                fontFamily: 'inherit',
+                height: 192,
+                sparkline: {
+                    enabled: true
+                },
+                animations: {
+                    enabled: false
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            fill: {
+                opacity: .16,
+                type: 'solid'
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+                curve: "smooth",
+            },
+            series: [{
+                name: "Purchases",
+                data: [3, 5, 4, 6, 7, 5, 6, 8, 24, 7, 12, 5, 6, 3, 8, 4, 14, 30, 17, 19, 15, 14, 25, 32, 40, 55, 60, 48, 52, 70]
+            }],
+            grid: {
+                strokeDashArray: 4,
+            },
+            xaxis: {
+                labels: {
+                    padding: 0,
+                },
+                tooltip: {
+                    enabled: false
+                },
+                axisBorder: {
+                    show: false,
+                },
+                type: 'datetime',
+            },
+            yaxis: {
+                labels: {
+                    padding: 4
+                },
+            },
+            labels: [
+                '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19'
+            ],
+            colors: ["#206bc4"],
+            legend: {
+                show: false,
+            },
+            point: {
+                show: false
+            },
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('sparkline-bounce-rate-1'), {
+            chart: {
+                type: "line",
+                fontFamily: 'inherit',
+                height: 24,
+                animations: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+            },
+            series: [{
+                color: "#206bc4",
+                data: [17, 24, 20, 10, 5, 1, 4, 18, 13]
+            }],
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('sparkline-bounce-rate-2'), {
+            chart: {
+                type: "line",
+                fontFamily: 'inherit',
+                height: 24,
+                animations: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+            },
+            series: [{
+                color: "#206bc4",
+                data: [13, 11, 19, 22, 12, 7, 14, 3, 21]
+            }],
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('sparkline-bounce-rate-3'), {
+            chart: {
+                type: "line",
+                fontFamily: 'inherit',
+                height: 24,
+                animations: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+            },
+            series: [{
+                color: "#206bc4",
+                data: [10, 13, 10, 4, 17, 3, 23, 22, 19]
+            }],
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('sparkline-bounce-rate-4'), {
+            chart: {
+                type: "line",
+                fontFamily: 'inherit',
+                height: 24,
+                animations: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+            },
+            series: [{
+                color: "#206bc4",
+                data: [6, 15, 13, 13, 5, 7, 17, 20, 19]
+            }],
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('sparkline-bounce-rate-5'), {
+            chart: {
+                type: "line",
+                fontFamily: 'inherit',
+                height: 24,
+                animations: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+            },
+            series: [{
+                color: "#206bc4",
+                data: [2, 11, 15, 14, 21, 20, 8, 23, 18, 14]
+            }],
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.ApexCharts && (new ApexCharts(document.getElementById('sparkline-bounce-rate-6'), {
+            chart: {
+                type: "line",
+                fontFamily: 'inherit',
+                height: 24,
+                animations: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            stroke: {
+                width: 2,
+                lineCap: "round",
+            },
+            series: [{
+                color: "#206bc4",
+                data: [22, 12, 7, 14, 3, 21, 8, 23, 18, 14]
+            }],
+        })).render();
+    });
+      // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.Litepicker && (new Litepicker({
+            element: document.getElementById('datepicker-inline'),
+            buttonText: {
+                previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+                nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+            },
+            inlineMode: true,
+        }));
+    });
+    // @formatter:on
+</script>
+<script>
+    const today = new Date();
+    document.getElementById("arr_time").value = today.getHours() + ':' + today.getMinutes();
+</script>
+<script>
+    $(document).ready(function () {
+        var url = 'http://localhost:8080/data_report'
+        $.ajax({
+            'url': url,
+            'dataType': 'json',
+            'method': 'get',
+        }).done(function (data) {
+            var newday = new Date().getDay()
+            switch (newday) {
+                case 0:
+                    day = "Sunday";
+                    break;
+                case 1:
+                    day = "Monday";
+                    break;
+                case 2:
+                    day = "Tuesday";
+                    break;
+                case 3:
+                    day = "Wednesday";
+                    break;
+                case 4:
+                    day = "Thursday";
+                    break;
+                case 5:
+                    day = "Friday";
+                    break;
+                case 6:
+                    day = "Saturday";
+            }
+            $.each(data, function (index, value) {
+                var body = '<tr>';
+                body += '<td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
+                body += '<td><span class="text-muted">001401</span></td>';
+                body += '<td>' + value.name + '</td>';
+                body += '<td>' + value.date + '</td>';
+                body += '<td>' + value.start_time + '</td>';
+                body += '<td>' + value.presence + '</td>';
+                body += '<td>' + day + '</td>';
+                body += '<td>';
+                body += '<span class="dropdown">';
+                body += '<button class="btn dropdown-toggle btn-sm align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>';
+                body += '<div class="dropdown-menu dropdown-menu-end">';
+                body += '<a class="dropdown-item" href="#">';
+                body += 'Details';
+                body += '</a>';
+                body += '</div>';
+                body += '</span>';
+                body += '</td>';
+                body += '<tr>';
+                $('#employee > tbody').append(body)
+            })
+        })
+        $('body').on('change', '#presence', function () {
+            $('#employee > tbody').html(' ')
+            var url = 'http://localhost:8080/data_report'
+            $.ajax({
+                'url': url,
+                'dataType': 'json',
+                'method': 'get',
+                'data': {
+                    'presence': $(this).val()
+                }
+            }).done(function (data) {
+                var newday = new Date().getDay()
+                switch (newday) {
+                    case 0:
+                        day = "Sunday";
+                        break;
+                    case 1:
+                        day = "Monday";
+                        break;
+                    case 2:
+                        day = "Tuesday";
+                        break;
+                    case 3:
+                        day = "Wednesday";
+                        break;
+                    case 4:
+                        day = "Thursday";
+                        break;
+                    case 5:
+                        day = "Friday";
+                        break;
+                    case 6:
+                        day = "Saturday";
+                }
+                $.each(data, function (index, value) {
+                    var body = '<tr>';
+                    body += '<td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
+                    body += '<td><span class="text-muted">001401</span></td>';
+                    body += '<td>' + value.name + '</td>';
+                    body += '<td>' + value.date + '</td>';
+                    body += '<td>' + value.start_time + '</td>';
+                    body += '<td>' + value.presence + '</td>';
+                    body += '<td>' + day + '</td>';
+                    body += '<td>';
+                    body += '<span class="dropdown">';
+                    body += '<button class="btn dropdown-toggle btn-sm align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>';
+                    body += '<div class="dropdown-menu dropdown-menu-end">';
+                    body += '<a class="dropdown-item" href="#">';
+                    body += 'Details';
+                    body += '</a>';
+                    body += '</div>';
+                    body += '</span>';
+                    body += '</td>';
+                    body += '<tr>';
+                    $('#employee > tbody').append(body)
+                })
+            })
+        })
+        $('body').on('click','#search_date', function(){
+            var start_date = $(this).closest(".search_range_date").find('#start_date').val()
+            var end_date = $(this).closest(".search_range_date").find('#end_date').val()
+            $('#employee > tbody').html(' ')
+            var url = 'http://localhost:8080/data_report'
+            $.ajax({
+                'url': url,
+                'dataType': 'json',
+                'method': 'get',
+                'data': {
+                    'start_date': start_date,
+                    'end_date': end_date
+                },
+            }).done(function (data) {
+                $.each(data, function (index, value) {
+                    var body = '<tr>';
+                    body += '<td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
+                    body += '<td><span class="text-muted">001401</span></td>';
+                    body += '<td>' + value.name + '</td>';
+                    body += '<td>' + value.date + '</td>';
+                    body += '<td>' + value.start_time + '</td>';
+                    body += '<td>' + value.presence + '</td>';
+                    body += '<td>' + day + '</td>';
+                    body += '<td>';
+                    body += '<span class="dropdown">';
+                    body += '<button class="btn dropdown-toggle btn-sm align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>';
+                    body += '<div class="dropdown-menu dropdown-menu-end">';
+                    body += '<a class="dropdown-item" href="#">';
+                    body += 'Details';
+                    body += '</a>';
+                    body += '</div>';
+                    body += '</span>';
+                    body += '</td>';
+                    body += '<tr>';
+                    $('#employee > tbody').append(body)
+                })
+            })
+        })
+    })
+</script>

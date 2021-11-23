@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>LOGIN SIREDA</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,900;1,100&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffffff;
+            font-size: 0.8rem;
+        }
+        
+        .login-form {
+            width: 300px;
+            margin: 0 auto;
+            padding-top: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .login-form h1 {
+            text-align: center;
+            color: #4d4d4d;
+            font-size: 24px;
+            padding: 20px 0 20px 0;
+        }
+        
+        .login-form input[type="password"],
+        .login-form input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #8e24aa;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+            border-radius: 25px;
+        }
+        
+        .text-copyright {
+            margin-left: 20px;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-form">
+        <img src="https://image.freepik.com/free-vector/verification-technologies-abstract-concept-illustration_335657-3894.jpg" style="width: 18rem;">
+        <h1>Silahkan Login</h1>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username" value="diskominfo" required>
+            <input type="password" name="password" placeholder="Password" value="superadmin" required>
+            <input type="submit" value="Login">
+        </form>
+        <h5 class="text-copyright">© 2021. Bidang PSDE Diskominfo Ciamis</h5>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,526 @@
+<div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <!-- Page pre-title -->
+                <h2 class="page-title">
+                    Data Rekap (Cashflow)
+                </h2>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <!-- Page pre-title -->
+                <a href="javascript:void(0)" id="download_presence">
+                    <button type="button" class="btn btn-success btn-pill btn-sm" id="download-report">Download
+                        report
+                    </button>
+                </a>
+                <div class="btn-list ml-2">
+                    <a href="#" class="btn btn-primary btn-sm btn-pill d-none d-sm-inline-block" id="tambah-cashflow"
+                        data-bs-toggle="modal" data-bs-target="#modal-report">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Tambah
+                    </a>
+                    <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
+                        data-bs-target="#modal-report" aria-label="Create new report">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xl">
+    <div class="page-header d-print-none">
+        <div class="row align-items-center search_range_date">
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="start_date" id="start_date">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="end_date" id="end_date">
+            </div>
+            <div class="col-md-3">
+                <a href="javascript:void(0)" id="search_date" class="btn btn-white btn-icon" aria-label="Button">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="10" cy="10" r="7"></circle>
+                        <line x1="21" y1="21" x2="15" y2="15"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-body">
+    <div class="container-xl">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Rekap list</h3>
+                </div>
+                <div class="card-body border-bottom py-3">
+                    <div class="d-flex">
+                        <div class="text-muted">
+                            Show
+                            <div class="mx-2 d-inline-block">
+                                <input type="text" class="form-control form-control-sm" value="8" size="3"
+                                    aria-label="Invoices count">
+                            </div>
+                            entries
+                        </div>
+                        <div class="ms-auto text-muted">
+                            Search:
+                            <div class="ms-2 d-inline-block">
+                                <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable" id="cashflow">
+                        <thead>
+                            <tr>
+                                <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"
+                                        aria-label="Select all invoices"></th>
+                                <th class="w-1">No.
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick"
+                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" fill="none" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <polyline points="6 15 12 9 18 15" />
+                                    </svg>
+                                </th>
+                                <th>Nama Pemilik</th>
+                                <th>Kode Rekening</th>
+                                <th>Sub Kegiatan</th>
+                                <th>Uraian</th>
+                                <th colspan="3">
+                                    <center>Rincian Perhitungan</center>
+                                </th>
+                                <th>Jumlah</th>
+                                <th>Tanggal Dibuat</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th class="w-1" rowspan="2"></th>
+                                <th class="w-1" rowspan="2"></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>Koefisien</th>
+                                <th>Satuan</th>
+                                <th>Harga</th>
+                                {{!-- <th>PPN</th> --}}
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer d-flex align-items-center">
+                    <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries</p>
+                    <ul class="pagination m-0 ms-auto">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <polyline points="15 6 9 12 15 18" />
+                                </svg>
+                                prev
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                next
+                                <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <polyline points="9 6 15 12 9 18" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Data baru {{ logusername }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" id="tambah_cash">
+                <input type="hidden" name="id" id="id" value="" />
+                <input type="hidden" name="total_awal" id="total_awal" value="" />
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label font-weight-bold">Sub Kegiatan</label>
+                            <select name="sub_kegiatan_id" class="form-select" id="sub_kegiatan">
+
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label font-weight-bold">Grand Total(saldo)</label>
+                            <input type="text" id="grandtotal" class="form-control" disabled="true">
+                            <input type="hidden" id="grandtotal_new" name="saldo" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <label class="form-label font-weight-bold">Uraian</label>
+                        <div class="col-lg-6">
+                            <label class="form-label">Uraian/Kegiatan</label>
+                            <input type="text" class="form-control" name="uraian" id="uraian"
+                                placeholder="Ketik uraian/kegiatan">
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="form-label">Koefisien</label>
+                            <input type="text" class="form-control" id="koefisien" name="koefisien"
+                                placeholder="Ketik koefisien">
+                        </div>
+                        <div class="col-lg-6 mt-2">
+                            <label class="form-label">Satuan</label>
+                            <input type="text" class="form-control" name="satuan" id="satuan"
+                                placeholder="Ketik satuan">
+                        </div>
+                        <div class="col-lg-6 mt-2">
+                            <label class="form-label">Kode Rekening</label>
+                            <input type="text" class="form-control" name="kode_rekening" id="kode_rekening"
+                                placeholder="Ketik kode rekening">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-6">
+                            <label class="form-label">Harga</label>
+                            <input type="text" class="form-control" id="harga" placeholder="Ketik harga">
+                            <input type="hidden" name="harga" id="harga_new">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-6">
+                            <label class="form-label">Jumlah</label>
+                            <input type="text" class="form-control" id="total" placeholder="Your report rekening"
+                                disabled="true">
+                            <input type="hidden" class="form-control" id="total_new" name="total">
+                            <span class="validation-jumlah text-red"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-link link-secondary btn-sm" data-bs-dismiss="modal">
+                        Kembali
+                    </a>
+                    <button type="button" class="btn btn-primary ms-auto btn-sm" id="simpan">
+                        Simpan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="assets/src/js/jquery-3.6.0.min.js"></script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.Litepicker && (new Litepicker({
+            element: document.getElementById('start_date'),
+            buttonText: {
+                previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+                nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+            },
+        }));
+    });
+    // @formatter:on
+</script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.Litepicker && (new Litepicker({
+            element: document.getElementById('end_date'),
+            buttonText: {
+                previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+                nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+            },
+        }));
+    });
+    // @formatter:on
+</script>
+<script>
+    $(document).ready(function () {
+        var url = '/data_cash/'
+        $.ajax({
+            'url': url,
+            'dataType': 'json',
+            'method': 'get',
+        }).done(function (data) {
+            $.each(data, function (index, value) {
+                var body = '<tr>';
+                body += '<td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
+                body += '<td><span class="text-muted">001401</span></td>';
+                body += '<td>' + value.user.name + '</td>';
+                body += '<td>' + value.kode_rekening + '</td>';
+                body += '<td>' + value.rekening.sub_kegiatan + '</td>';
+                body += '<td>' + value.uraian + '</td>';
+                body += '<td>' + value.koefisien + '</td>';
+                body += '<td>' + value.satuan + '</td>';
+                body += '<td>Rp. ' + value.harga.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
+                //   body += '<td>' + value.ppn + '</td>';
+                body += '<td>Rp. ' + value.total.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
+                body += '<td>' + value.createdAt + '</td>';
+                body += '<td>';
+                body += '<span class="dropdown">';
+                body += '<button class="btn dropdown-toggle btn-sm align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>';
+                body += '<div class="dropdown-menu dropdown-menu-end">';
+                body += '<a class="dropdown-item btn-sm edit" data-bind=' + value.id + ' data-total=' + value.total + ' href="javascript:void(0)">';
+                body += 'Edit';
+                body += '</a>';
+                body += '<a class="dropdown-item btn-sm delete" data-bind=' + value.id + ' data-saldo=' + value.rekening.saldo + ' data-total=' + value.total + ' data-kegiatan=' + value.rekening.id + ' href="javascript:void(0)">';
+                body += 'Delete';
+                body += '</a>';
+                body += '</div>';
+                body += '</span>';
+                body += '</td>';
+                body += '<tr>';
+                $('#cashflow > tbody').append(body)
+            })
+        })
+
+        // edit data cashflow
+        $('body').on('click', '.edit', function () {
+            var id = $(this).attr('data-bind')
+            var total = $(this).attr('data-total')
+            $("#total_awal").val(total)
+            var url = '/cashflow_by_id/'
+            $.ajax({
+                'url': url,
+                'dataType': 'json',
+                'method': 'get',
+                'data': {
+                    'id': id,
+                    'total_awal': total
+                }
+            }).done(function (data) {
+                $.each(data, function (index, value) {
+                    $("#sub_kegiatan").val(value.rekeningId)
+                    $("#uraian").val(value.uraian)
+                    $("#koefisien").val(value.koefisien)
+                    $("#satuan").val(value.satuan)
+                    $("#kode_rekening").val(value.kode_rekening)
+                    $("#harga").val(value.harga.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
+                    $("#harga_new").val(value.harga)
+                    $("#total").val(value.total.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
+                    $("#total_new").val(value.total)
+                    $("#grandtotal").val(value.rekening.saldo.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
+                    $("#grandtotal_new").val(value.rekening.saldo)
+                    $("#id").val(value.id)
+                })
+            });
+            $("#modal-report").modal('show')
+        })
+
+        // delete data cashflow
+        $('body').on('click', '.delete', function () {
+            if (confirm('Apakah anda yakin akan menghapus data ini ?')) {
+                var id = $(this).attr('data-bind')
+                var saldo = $(this).attr('data-saldo')
+                var total = $(this).attr('data-total')
+                var kegiatan_id = $(this).attr('data-kegiatan')
+                var url = '/delete_cashflow/'
+                $.ajax({
+                    'url': url,
+                    'dataType': 'json',
+                    'method': 'get',
+                    'data': {
+                        'id': id,
+                        'saldo': saldo,
+                        'total': total,
+                        'sub_kegiatan_id': kegiatan_id
+                    }
+                }).done(function (data) {
+                    if (data.status == 200) {
+                        location.reload()
+                    } else {
+                        alert("Gagal hapus data")
+                    }
+                });
+            }
+        })
+
+        // Get data sub kegiatan
+        var url = '/data_rekening/'
+        $.ajax({
+            'url': url,
+            'dataType': 'json',
+            'method': 'get',
+            'data': {
+                'users_id': $("#userid").val()
+            }
+        }).done(function (data) {
+            var body = '<option value="">--pilih--</option>';
+            $.each(data, function (index, value) {
+                // option list sub kegiatan
+                body += '<option value=' + value.id + '>' + value.sub_kegiatan + '</option>'
+            })
+            $("#sub_kegiatan").append(body)
+        })
+
+        $('body').on('change', '#sub_kegiatan', function () {
+            var url = '/data_rekening/'
+            $.ajax({
+                'url': url,
+                'dataType': 'json',
+                'method': 'get',
+                'data': {
+                    'users_id': $("#userid").val(),
+                    'rekening_id': $(this).val()
+                }
+            }).done(function (data) {
+                $.each(data, function (index, value) {
+                    $("#grandtotal").val('Rp. ' + value.saldo.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
+                    $("#grandtotal_new").val(value.saldo)
+                })
+            })
+
+        })
+
+        $('#harga').autoNumeric('init', { aSep: '.', aDec: ',', mDec: '0' })
+        $('#total').autoNumeric('init', { aSep: '.', aDec: ',', mDec: '0' })
+        $('body').on('keyup', '#harga', function () {
+            var harga_asli = $(this).val()
+            var harga_fix = harga_asli.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '.')
+            var koefisien = $("#koefisien").val()
+            var jumlah = parseInt(harga_fix) * parseInt(koefisien)
+            $('#total').val(jumlah.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
+            $('#total_new').val(jumlah)
+            $('#harga').val(harga_asli)
+            $('#harga_new').val(harga_fix)
+        })
+        $('body').on('keyup', '#koefisien', function () {
+            var harga_asli = $("#harga").val()
+            var harga_fix = harga_asli.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '.')
+            var koefisien = $(this).val()
+            var jumlah = parseInt(harga_fix) * parseInt(koefisien)
+            $('#total').val(jumlah.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
+            $('#total_new').val(jumlah)
+        })
+
+        $('body').on('click', '#simpan', function () {
+            let grandtotal = parseInt($("#grandtotal_new").val())
+            let total = parseInt($("#total_new").val())
+            if (grandtotal > total) {
+                $.ajax({
+                    dataType: 'json',
+                    method: 'post',
+                    data: $("#tambah_cash").serialize(),
+                    url: '/tambah_cash'
+                }).done(function (response) {
+                    console.log(response.status)
+                    if (response.status == 200) {
+                        location.reload()
+                    }
+                })
+            } else {
+                $(".validation-jumlah").html('Harga tidak boleh lebih dari grandtotal')
+            }
+
+        })
+    })
+
+    $('body').on('click', '#download_presence', function () {
+        let startDate = $('#start_date').val()
+        let endDate = $('#end_date').val()
+        location.href = '/download_report?start_date=' + startDate + '&end_date=' + endDate
+        //location.href = '/download_repoet/'
+    })
+
+    $('body').on('click', '#search_date', function () {
+        var start_date = $(this).closest(".search_range_date").find('#start_date').val()
+        var end_date = $(this).closest(".search_range_date").find('#end_date').val()
+        $('#cashflow > tbody').html(' ')
+        var url = '/data_cash'
+        $.ajax({
+            'url': url,
+            'dataType': 'json',
+            'method': 'get',
+            'data': {
+                'start_date': start_date,
+                'end_date': end_date
+            },
+        }).done(function (data) {
+            $.each(data, function (index, value) {
+                var body = '<tr>';
+                body += '<td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
+                body += '<td><span class="text-muted">001401</span></td>';
+                body += '<td>' + value.user.name + '</td>';
+                body += '<td>' + value.kode_rekening + '</td>';
+                body += '<td>' + value.rekening.sub_kegiatan + '</td>';
+                body += '<td>' + value.uraian + '</td>';
+                body += '<td>' + value.koefisien + '</td>';
+                body += '<td>' + value.satuan + '</td>';
+                body += '<td>Rp. ' + value.harga.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
+                //   body += '<td>' + value.ppn + '</td>';
+                body += '<td>Rp. ' + value.total.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
+                body += '<td>' + value.createdAt + '</td>';
+                body += '<td>';
+                body += '<span class="dropdown">';
+                body += '<button class="btn dropdown-toggle btn-sm align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>';
+                body += '<div class="dropdown-menu dropdown-menu-end">';
+                body += '<a class="dropdown-item btn-sm edit" data-bind=' + value.id + ' href="javascript:void(0)">';
+                body += 'Edit';
+                body += '</a>';
+                body += '<a class="dropdown-item btn-sm delete" data-bind=' + value.id + ' data-saldo=' + value.rekening.saldo + ' data-total=' + value.total + ' data-kegiatan=' + value.rekening.id + ' href="javascript:void(0)">';
+                body += 'Delete';
+                body += '</a>';
+                body += '</div>';
+                body += '</span>';
+                body += '</td>';
+                body += '<tr>';
+                $('#cashflow > tbody').append(body)
+            })
+        })
+    })
+</script>
