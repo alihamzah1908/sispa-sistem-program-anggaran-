@@ -207,7 +207,6 @@
             $('#pagination-container').pagination({
                 dataSource: data,
                 callback: function (data, pagination) {
-                    // template method of yourself
                     var body = []
                     $.each(data, function (index, value) {
                         body += '<tr>';
@@ -230,8 +229,8 @@
             })
         })
 
-        var saldo_digunakan = $(".saldo_digunakan").val()
-        var sisa_saldo = $(".sisa_saldos").val()
+        var saldo_digunakan = $(".row-deck").find('.saldo_digunakan').val()
+        var sisa_saldo = $(".row-deck").find('.sisa_saldos').val()
         var grandtotal = (parseFloat(saldo_digunakan) + parseFloat(sisa_saldo))
         $(".grandtotal").html('Rp. ' + grandtotal.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
     })

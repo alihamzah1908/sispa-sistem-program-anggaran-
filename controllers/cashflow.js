@@ -125,10 +125,10 @@ exports.tambah_cashflow = (req, res) => {
                     id: req.body.sub_kegiatan_id
                 }
             }).then(cash => {
-                if (cash) {
+                try{
                     res.redirect('/cashflow')
-                } else {
-                    res.status(400).send('Error in insert new record');
+                }catch(err){
+                    console.log(err)
                 }
             })
         }
@@ -273,10 +273,10 @@ exports.deleteCashflow = (req, res) => {
                 id: req.query.sub_kegiatan_id
             }
         }).then(cash => {
-            if (cash) {
+            try{
                 res.redirect('/cashflow')
-            } else {
-                res.status(400).send('Error in insert new record');
+            }catch(err){
+                console.log(err)
             }
         })
     })
