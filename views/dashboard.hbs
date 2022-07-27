@@ -11,7 +11,7 @@
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
-                    <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
+                    <a href="#" class="btn btn-primary btn-pill d-sm-none btn-icon" data-bs-toggle="modal"
                         data-bs-target="#modal-report" aria-label="Create new report">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -160,38 +160,10 @@
                         </table>
                     </div>
                     <div class="card-footer d-flex align-items-center">
-                        <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries
                         </p>
                         <ul class="pagination m-0 ms-auto">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <polyline points="15 6 9 12 15 18" />
-                                    </svg>
-                                    prev
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    next
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <polyline points="9 6 15 12 9 18" />
-                                    </svg>
-                                </a>
-                            </li>
+                            <div id="data-container"></div>
+                            <div id="pagination-container"></div>
                         </ul>
                     </div>
                 </div>
@@ -200,93 +172,11 @@
     </div>
 </div>
 <script src="assets/src/js/jquery-3.6.0.min.js"></script>
-{{!--
-<script>
-    // @formatter:off
-    document.addEventListener("DOMContentLoaded", function () {
-        window.ApexCharts && (new ApexCharts(document.getElementById('chart-mentions'), {
-            chart: {
-                type: "bar",
-                fontFamily: 'inherit',
-                height: 240,
-                parentHeightOffset: 0,
-                toolbar: {
-                    show: false,
-                },
-                animations: {
-                    enabled: false
-                },
-                stacked: true,
-            },
-            plotOptions: {
-                bar: {
-                    columnWidth: '50%',
-                }
-            },
-            dataLabels: {
-                enabled: false,
-            },
-            fill: {
-                opacity: 1,
-            },
-            series: [{
-                name: "Web",
-                data: [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 12, 5, 8, 22, 6, 8, 6, 4, 1, 8, 24, 29, 51, 40, 47, 23, 26, 50, 26, 41, 22, 46, 47, 81, 46, 6]
-            }, {
-                name: "Social",
-                data: [2, 5, 4, 3, 3, 1, 4, 7, 5, 1, 2, 5, 3, 2, 6, 7, 7, 1, 5, 5, 2, 12, 4, 6, 18, 3, 5, 2, 13, 15, 20, 47, 18, 15, 11, 10, 0]
-            }, {
-                name: "Other",
-                data: [2, 9, 1, 7, 8, 3, 6, 5, 5, 4, 6, 4, 1, 9, 3, 6, 7, 5, 2, 8, 4, 9, 1, 2, 6, 7, 5, 1, 8, 3, 2, 3, 4, 9, 7, 1, 6]
-            }],
-            grid: {
-                padding: {
-                    top: -20,
-                    right: 0,
-                    left: -4,
-                    bottom: -4
-                },
-                strokeDashArray: 4,
-                xaxis: {
-                    lines: {
-                        show: true
-                    }
-                },
-            },
-            xaxis: {
-                labels: {
-                    padding: 0,
-                },
-                tooltip: {
-                    enabled: false
-                },
-                axisBorder: {
-                    show: false,
-                },
-                type: 'datetime',
-            },
-            yaxis: {
-                labels: {
-                    padding: 4
-                },
-            },
-            labels: [
-                '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19', '2020-07-20', '2020-07-21', '2020-07-22', '2020-07-23', '2020-07-24', '2020-07-25', '2020-07-26'
-            ],
-            colors: ["#206bc4", "#79a6dc", "#bfe399"],
-            legend: {
-                show: false,
-            },
-        })).render();
-    });
-      // @formatter:on
-</script> --}}
 <script>
     $(document).ready(function () {
-        // Get data rekeing
-        var url = '/data_rekening/'
+        // GET DATA REKENING
         $.ajax({
-            'url': url,
+            'url': '/data_rekening/',
             'dataType': 'json',
             'method': 'get',
         }).done(function (data) {
@@ -298,11 +188,11 @@
             $('.sisa_saldo').html('Rp. ' + sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."))
         })
 
+        // GET DATA CASH
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        var url = '/data_cash/'
         $.ajax({
-            'url': url,
+            'url': '/data_cash/',
             'dataType': 'json',
             'method': 'get',
         }).done(function (data) {
@@ -312,22 +202,31 @@
             })
             $(".saldo_digunakan").val(sum);
             $(".saldo_digunakan1").html('Rp. ' + sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
-            $.each(data, function (index, value) {
-                var body = '<tr>';
-                body += '<td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
-                body += '<td><span class="text-muted">001401</span></td>';
-                body += '<td>' + value.user.name + '</td>';
-                body += '<td>' + value.kode_rekening + '</td>';
-                body += '<td>' + value.rekening.sub_kegiatan + '</td>';
-                body += '<td>' + value.uraian + '</td>';
-                body += '<td>' + value.koefisien + '</td>';
-                body += '<td>' + value.satuan + '</td>';
-                body += '<td>Rp. ' + value.harga.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
-                //   body += '<td>' + value.ppn + '</td>';
-                body += '<td>Rp. ' + value.total.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
-                body += '<td>' + value.createdAt + '</td>';
-                body += '<tr>';
-                $('#riwayat_transaksi > tbody').append(body)
+
+            // GET DATA WITH PAGINATION
+            $('#pagination-container').pagination({
+                dataSource: data,
+                callback: function (data, pagination) {
+                    // template method of yourself
+                    var body = []
+                    $.each(data, function (index, value) {
+                        body += '<tr>';
+                        body += '<td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>';
+                        body += '<td><span class="text-muted">001401</span></td>';
+                        body += '<td>' + value.user.name + '</td>';
+                        body += '<td>' + value.kode_rekening + '</td>';
+                        body += '<td>' + value.rekening.sub_kegiatan + '</td>';
+                        body += '<td>' + value.uraian + '</td>';
+                        body += '<td>' + value.koefisien + '</td>';
+                        body += '<td>' + value.satuan + '</td>';
+                        body += '<td>Rp. ' + value.harga.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
+                        //   body += '<td>' + value.ppn + '</td>';
+                        body += '<td>Rp. ' + value.total.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</td>';
+                        body += '<td>' + value.createdAt + '</td>';
+                        body += '<tr>';
+                    })
+                    $('#riwayat_transaksi > tbody').html(body)
+                }
             })
         })
 

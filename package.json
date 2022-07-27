@@ -19,6 +19,7 @@
         "express-session": "^1.17.2",
         "mysql": "^2.18.1",
         "mysql2": "^2.3.2",
+        "paginationjs": "^2.1.5",
         "sequelize": "^6.9.0"
     },
     "devDependencies": {

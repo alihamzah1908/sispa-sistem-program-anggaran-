@@ -20,7 +20,7 @@ app.engine('hbs', exphbs({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 require("./routes/routes.js")(app);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
